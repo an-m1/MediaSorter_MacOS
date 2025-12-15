@@ -12,6 +12,13 @@ struct MediaPreview: View {
     let url: URL
     @Binding var player: AVPlayer
 
+    private var videoView: some View {
+        PlayerContainerView(player: player)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(10)
+    }
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
@@ -31,9 +38,7 @@ struct MediaPreview: View {
                         .foregroundStyle(.secondary)
                 }
             } else if MediaType.isVideo(url) {
-                VideoPlayer(player: player)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .padding(10)
+                videoView
 
                 VStack {
                     Spacer()
@@ -53,6 +58,25 @@ struct MediaPreview: View {
                     .foregroundStyle(.secondary)
             }
         }
+    }
+}
+
+// MARK: - AVPlayerView wrapper
+
+private struct PlayerContainerView: NSViewRepresentable {
+    let player: AVPlayer
+
+    func makeNSView(context: Context) -> AVPlayerView {
+        let view = AVPlayerView()
+        view.controlsStyle = .floating
+        view.videoGravity = .resizeAspect
+        view.player = player
+        view.showsFullScreenToggleButton = false
+        return view
+    }
+
+    func updateNSView(_ nsView: AVPlayerView, context: Context) {
+        nsView.player = player
     }
 }
 
