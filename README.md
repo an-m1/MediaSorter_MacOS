@@ -46,10 +46,11 @@ MediaSorter automatically detects common formats supported by macOS:
 
 ## Screenshots
 
-```text
-<img width="969" height="673" alt="image" src="https://github.com/user-attachments/assets/9d2e4277-2271-468a-b3fc-98233bb087c8" />
-
-```
+<p align="center">
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/homepage.png?raw=true"
+       alt="MediaSorter main interface"
+       width="800">
+</p>
 
 ---
 
