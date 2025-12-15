@@ -1,7 +1,7 @@
 # MediaSorter — macOS Media Organization Tool
 
 <p align="center">
-  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/ico.png?raw=true"
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/images/ico.png?raw=true"
        alt="MediaSorter Icon"
        width="150">
 </p>
@@ -54,14 +54,14 @@ MediaSorter automatically detects common formats supported by macOS:
 
 <p align="center">
    <em>Main MediaSorter interface allowing for the user to select source and destination folders.</em>
-  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/homepage.png?raw=true"
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/images/homepage.png?raw=true"
        alt="MediaSorter main interface"
        width="800">
 </p>
 
 <p align="center">
   <em>MediaSorter sorting interface showing media preview, destination folders, and media editing.</em>
-  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/sorting_sample.png?raw=true"
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/images/sorting_sample.png?raw=true"
        alt="MediaSorter main interface"
        width="800">
 </p>
@@ -103,7 +103,7 @@ Each release includes:
 
 ### Steps:
 1. Download the latest release
-2. Extract the ZIP (if applicable)
+2. Extract the ZIP located in the `app-download` folder
 3. Open the `.dmg`
 4. Drag **MediaSorter.app** into **Applications**
 5. Launch the app
