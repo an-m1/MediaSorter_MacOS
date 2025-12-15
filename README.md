@@ -1,5 +1,11 @@
 # MediaSorter — macOS Media Organization Tool
 
+<p align="center">
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/ico.png?raw=true"
+       alt="MediaSorter Icon"
+       width="150">
+</p>
+
 **MediaSorter** is a native macOS application designed to efficiently organize large collections of images and videos using a fast, keyboard-driven workflow.  
 It removes the friction of drag-and-drop sorting by allowing users to preview media and route files to destination folders using simple shortcuts.
 
@@ -47,7 +53,15 @@ MediaSorter automatically detects common formats supported by macOS:
 ## Screenshots
 
 <p align="center">
+   <em>Main MediaSorter interface allowing for the user to select source and destination folders.</em>
   <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/homepage.png?raw=true"
+       alt="MediaSorter main interface"
+       width="800">
+</p>
+
+<p align="center">
+  <em>MediaSorter sorting interface showing media preview, destination folders, and media editing.</em>
+  <img src="https://github.com/an-m1/MediaSorter_MacOS/blob/main/sorting_sample.png?raw=true"
        alt="MediaSorter main interface"
        width="800">
 </p>
