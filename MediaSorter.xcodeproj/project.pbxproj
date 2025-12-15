@@ -39,22 +39,11 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		FC482D9E2EF089E100DE2DB9 /* Exceptions for "MediaSorter" folder in "Compile Sources" phase from "MediaSorter" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = FC1CAE7F2EED0B9A00AC84DD /* Sources */;
-			membershipExceptions = (
-				.gitignore,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FC1CAE852EED0B9A00AC84DD /* MediaSorter */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				FC482D9D2EF089E100DE2DB9 /* Exceptions for "MediaSorter" folder in "MediaSorter" target */,
-				FC482D9E2EF089E100DE2DB9 /* Exceptions for "MediaSorter" folder in "Compile Sources" phase from "MediaSorter" target */,
 			);
 			path = MediaSorter;
 			sourceTree = "<group>";
