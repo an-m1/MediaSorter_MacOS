@@ -1,0 +1,13 @@
+//
+//  .gitignore
+//  MediaSorter
+//
+//  Created by Ankit Modhera on 2025-12-15.
+//
+
+# Xcode
+     build/
+     DerivedData/
+     *.xcuserstate
+     xcuserdata/
+     .DS_Store

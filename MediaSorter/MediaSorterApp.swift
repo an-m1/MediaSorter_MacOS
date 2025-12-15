@@ -13,5 +13,6 @@ struct MediaSorterApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(.automatic)
     }
 }
