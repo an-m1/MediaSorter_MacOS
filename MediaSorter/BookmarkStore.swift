@@ -56,14 +56,23 @@ struct BookmarkStore {
         do {
             let items = try JSONDecoder().decode([DestinationBookmark].self, from: data)
             var result: [Destination] = []
+            var updatedItems = items
+            var didRefresh = false
             for item in items {
                 var isStale = false
                 let url = try URL(resolvingBookmarkData: item.bookmarkData, options: [.withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &isStale)
                 if isStale {
-                    // Try to refresh the bookmark and continue
-                    try refreshDestination(name: item.name, url: url)
+                    let refreshedData = try url.bookmarkData(options: [.withSecurityScope], includingResourceValuesForKeys: nil, relativeTo: nil)
+                    if let idx = updatedItems.firstIndex(where: { $0.name == item.name && $0.bookmarkData == item.bookmarkData }) {
+                        updatedItems[idx].bookmarkData = refreshedData
+                    }
+                    didRefresh = true
                 }
                 result.append(Destination(name: item.name, url: url))
+            }
+            if didRefresh {
+                let encoded = try JSONEncoder().encode(updatedItems)
+                UserDefaults.standard.set(encoded, forKey: destinationsKey)
             }
             return result
         } catch {
@@ -80,13 +89,14 @@ struct BookmarkStore {
     }
 
     private static func refreshDestination(name: String, url: URL) throws {
-        _ = try url.bookmarkData(options: [.withSecurityScope], includingResourceValuesForKeys: nil, relativeTo: nil)
-        let existing = loadDestinations()
-        var updated = existing
-        if let idx = updated.firstIndex(where: { $0.name == name && $0.url == url }) {
-            updated[idx] = Destination(name: name, url: url)
+        let data = try url.bookmarkData(options: [.withSecurityScope], includingResourceValuesForKeys: nil, relativeTo: nil)
+        guard let existingData = UserDefaults.standard.data(forKey: destinationsKey) else { return }
+        let items = try JSONDecoder().decode([DestinationBookmark].self, from: existingData)
+        var updated = items
+        if let idx = updated.firstIndex(where: { $0.name == name }) {
+            updated[idx].bookmarkData = data
+            let encoded = try JSONEncoder().encode(updated)
+            UserDefaults.standard.set(encoded, forKey: destinationsKey)
         }
-        // Re-save all destinations with new bookmark for this one
-        saveDestinations(updated)
     }
 }
